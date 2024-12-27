@@ -19,4 +19,42 @@ public class Shift {
         this.hoursWorked = hoursWorked;
         this.hourlyWage = hourlyWage;
     }
+
+    // Getters e Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(double hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    public double getHourlyWage() {
+        return hourlyWage;
+    }
+
+    public void setHourlyWage(double hourlyWage) {
+        this.hourlyWage = hourlyWage;
+    }
+
+    // Calcolo totale dello stipendio
+    public double getTotalPay() {
+        return hoursWorked * hourlyWage;
+    }
 }

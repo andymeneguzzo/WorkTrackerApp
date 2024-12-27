@@ -1,39 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/etDate"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data (yyyy-mm-dd)"
-        android:layout_marginBottom="16dp"/>
+        android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/etHours"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ore lavorate"
-        android:inputType="numberDecimal"
-        android:layout_marginBottom="16dp"/>
+        <!-- Data del Turno -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data (dd-MM-yyyy)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/etWage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Paga oraria"
-        android:inputType="numberDecimal"
-        android:layout_marginBottom="16dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salva turno" />
+        <!-- Orario di Inizio -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Orario di Inizio (HH:mm)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Orario di Fine -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Orario di Fine (HH:mm)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEndTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Paga Oraria -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilWage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Paga Oraria (€)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etWage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Pulsante Salva -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva Turno"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,53 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/etMonth"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mese (1-12)"
-        android:inputType="number"
-        android:layout_marginBottom="16dp" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Anno (es. 2024)"
-        android:inputType="number"
-        android:layout_marginBottom="16dp" />
+        <!-- Selezione Mese -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mese (1-12)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/btnMonthlyStats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mostra statistiche mensili"
-        android:layout_marginBottom="16dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnYearlyStats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mostra statistiche annuali"
-        android:layout_marginBottom="16dp"/>
+        <!-- Selezione Anno -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Anno (es. 2024)"
+            app:boxStrokeColor="@color/purple_500"
+            app:boxBackgroundMode="outline"
+            android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/btnTotalStats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Totale globale"
-        android:layout_marginBottom="16dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/tvResults"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp" />
+        <!-- Pulsanti per le Statistiche -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMonthlyStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mostra Statistiche Mensili"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"/>
 
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnYearlyStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mostra Statistiche Annuali"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTotalStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Totale Globale"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Risultati delle Statistiche -->
+        <TextView
+            android:id="@+id/tvResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

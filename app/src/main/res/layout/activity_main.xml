@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddShift"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aggiungi Turno"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
         android:layout_marginBottom="16dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnViewShifts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Visualizza Turni"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
         android:layout_marginBottom="16dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Statistiche" />
+        android:text="Statistiche"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white" />
 
 </LinearLayout>

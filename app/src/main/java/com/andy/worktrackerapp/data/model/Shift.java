@@ -18,9 +18,10 @@ public class Shift implements Serializable{
     private double hourlyWage;
 
     // Costruttore
-    public Shift(String date, double hoursWorked, double hourlyWage) {
+    public Shift(String date, String startTime, String endTime, double hourlyWage) {
         this.date = date;
-        this.hoursWorked = hoursWorked;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.hourlyWage = hourlyWage;
     }
 

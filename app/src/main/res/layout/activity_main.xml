@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="?attr/android:colorBackground">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddShift"
@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:text="Aggiungi Turno"
         app:cornerRadius="8dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:layout_marginBottom="16dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:text="Visualizza Turni"
         app:cornerRadius="8dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:layout_marginBottom="16dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Statistiche"
         app:cornerRadius="8dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@color/white" />
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary" />
 
 </LinearLayout>

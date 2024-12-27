@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/android:colorBackground">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Data (dd-MM-yyyy)"
-            app:boxStrokeColor="@color/purple_500"
+            app:boxStrokeColor="?attr/colorPrimary"
             app:boxBackgroundMode="outline"
             android:layout_marginBottom="16dp">
 
@@ -27,7 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:textColor="?attr/colorOnBackground"
+                android:background="?attr/colorSurface"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Orario di Inizio -->
@@ -36,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Orario di Inizio (HH:mm)"
-            app:boxStrokeColor="@color/purple_500"
+            app:boxStrokeColor="?attr/colorPrimary"
             app:boxBackgroundMode="outline"
             android:layout_marginBottom="16dp">
 
@@ -45,7 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:textColor="?attr/colorOnBackground"
+                android:background="?attr/colorSurface"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Orario di Fine -->
@@ -54,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Orario di Fine (HH:mm)"
-            app:boxStrokeColor="@color/purple_500"
+            app:boxStrokeColor="?attr/colorPrimary"
             app:boxBackgroundMode="outline"
             android:layout_marginBottom="16dp">
 
@@ -63,7 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:textColor="?attr/colorOnBackground"
+                android:background="?attr/colorSurface"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Paga Oraria -->
@@ -72,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Paga Oraria (€)"
-            app:boxStrokeColor="@color/purple_500"
+            app:boxStrokeColor="?attr/colorPrimary"
             app:boxBackgroundMode="outline"
             android:layout_marginBottom="16dp">
 
@@ -80,7 +87,9 @@
                 android:id="@+id/etWage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:textColor="?attr/colorOnBackground"
+                android:background="?attr/colorSurface"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Pulsante Aggiorna -->
@@ -90,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Aggiorna Turno"
             app:cornerRadius="8dp"
-            android:backgroundTint="@color/purple_500"
-            android:textColor="@color/white"/>
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"/>
     </LinearLayout>
 </ScrollView>

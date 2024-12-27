@@ -3,8 +3,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <!-- Colori per il Tema Chiaro -->
+    <color name="colorPrimary">#FFA07A</color> <!-- Pastel Orange -->
+    <color name="colorPrimaryVariant">#FF8C00</color> <!-- Dark Orange -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- White text/icons on Primary -->
+
+    <color name="colorSecondary">#FFCC99</color> <!-- Light Orange -->
+    <color name="colorSecondaryVariant">#FFDAB9</color> <!-- Peach Puff -->
+    <color name="colorOnSecondary">#000000</color> <!-- Black text/icons on Secondary -->
+
+    <color name="colorBackground">#FFFFFF</color> <!-- White Background -->
+    <color name="colorOnBackground">#000000</color> <!-- Black Text on Background -->
+
+    <color name="colorSurface">#FFFFFF</color> <!-- White Surface -->
+    <color name="colorOnSurface">#000000</color> <!-- Black Text on Surface -->
+
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
 
 </resources>

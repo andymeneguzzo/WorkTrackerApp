@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colori per il Tema Scuro -->
+    <color name="colorPrimary">#FF8C00</color> <!-- Dark Orange for contrast -->
+    <color name="colorPrimaryVariant">#FFA500</color> <!-- Standard Orange -->
+    <color name="colorOnPrimary">#000000</color> <!-- Black text/icons on Primary -->
+
+    <color name="colorSecondary">#FFDAB9</color> <!-- Peach Puff -->
+    <color name="colorSecondaryVariant">#FFB347</color> <!-- Light Orange -->
+    <color name="colorOnSecondary">#000000</color> <!-- Black text/icons on Secondary -->
+
+    <color name="colorBackground">#121212</color> <!-- Very Dark Gray Background -->
+    <color name="colorOnBackground">#FFFFFF</color> <!-- White Text on Background -->
+
+    <color name="colorSurface">#1E1E1E</color> <!-- Dark Surface -->
+    <color name="colorOnSurface">#FFFFFF</color> <!-- White Text on Surface -->
+
+    <color name="colorError">#CF6679</color>
+    <color name="colorOnError">#000000</color>
+</resources>

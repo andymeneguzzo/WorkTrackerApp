@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="16dp"
+    android:background="?attr/colorSurface">
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,7 +23,7 @@
             android:text="Data: 27-12-2024"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="?attr/colorOnSurface"/>
 
         <!-- Intervallo Orario -->
         <TextView
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="09:00 - 17:00"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginTop="4dp"/>
 
         <!-- Ore Lavorate -->
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="Ore Lavorate: 8.0"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginTop="4dp"/>
 
         <!-- Paga Oraria -->
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Paga Oraria: 15.00 €"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginTop="4dp"/>
 
         <!-- Totale Turno -->
@@ -62,7 +63,7 @@
             android:text="Totale: 120.00 €"
             android:textStyle="bold"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 

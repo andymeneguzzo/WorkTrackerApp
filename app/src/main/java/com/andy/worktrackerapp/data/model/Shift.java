@@ -2,9 +2,10 @@ package com.andy.worktrackerapp.data.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
 @Entity(tableName = "shifts")
-public class Shift {
+public class Shift implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     private int id;

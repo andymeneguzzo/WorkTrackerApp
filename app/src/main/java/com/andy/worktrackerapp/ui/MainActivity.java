@@ -1,3 +1,10 @@
+/**
+ *
+ * IDEE x app MIO AMORE -> data italiana, inserire orario da-a, migliora l'estetica
+ *
+ *
+ * */
+
 package com.andy.worktrackerapp.ui;
 
 import android.os.Bundle;

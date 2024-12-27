@@ -14,6 +14,7 @@
         tools:targetApi="31">
 
         <activity android:name=".ui.AddShiftActivity"/>
+        <activity android:name=".ui.EditShiftActivity"/>
         <activity android:name=".ui.ShiftListActivity"/>
         <activity android:name=".ui.StatsActivity"/>
 

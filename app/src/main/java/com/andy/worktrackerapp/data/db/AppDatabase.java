@@ -1,7 +1,6 @@
 package com.andy.worktrackerapp.data.db;
 
 import androidx.room.Database;
-import androidx.room.Entity;
 import androidx.room.RoomDatabase;
 import androidx.room.Room;
 import android.content.Context;

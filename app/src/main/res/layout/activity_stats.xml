@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mese (1-12)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Anno (es. 2024)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnMonthlyStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostra statistiche mensili"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnYearlyStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostra statistiche annuali"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnTotalStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Totale globale"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

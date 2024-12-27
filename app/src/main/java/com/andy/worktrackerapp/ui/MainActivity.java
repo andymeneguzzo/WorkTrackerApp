@@ -1,10 +1,3 @@
-/**
- *
- * IDEE x app MIO AMORE -> data italiana, inserire orario da-a, migliora l'estetica
- *
- *
- * */
-
 package com.andy.worktrackerapp.ui;
 
 import android.os.Bundle;
@@ -16,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.andy.worktrackerapp.R;
+import com.andy.worktrackerapp.ui.AddShiftActivity;
+import com.andy.worktrackerapp.ui.ShiftListActivity;
+import com.andy.worktrackerapp.ui.StatsActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnAddShift, btnViewShifts, btnStats;

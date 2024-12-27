@@ -20,6 +20,10 @@ public class ShiftRepository {
         shiftDao.insertShift(shift);
     }
 
+    public void updateShift(Shift shift) {
+        shiftDao.updateShift(shift);
+    }
+
     public List<Shift> getAllShifts() {
         return shiftDao.getAllShifts();
     }

@@ -18,6 +18,11 @@
         <activity android:name=".ui.ShiftListActivity"/>
         <activity android:name=".ui.StatsActivity"/>
 
+        <!-- Nuove Attività per le Statistiche -->
+        <activity android:name=".ui.MonthlyStatsActivity"/>
+        <activity android:name=".ui.AnnualStatsActivity"/>
+        <activity android:name=".ui.GlobalStatsActivity"/>
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

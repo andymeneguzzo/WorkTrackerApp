@@ -101,5 +101,15 @@
             app:cornerRadius="8dp"
             android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"/>
+
+        <!-- Pulsante Elimina -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elimina Turno"
+            app:cornerRadius="8dp"
+            android:backgroundTint="#FF5252"
+            android:textColor="?attr/colorOnPrimary"/>
     </LinearLayout>
 </ScrollView>

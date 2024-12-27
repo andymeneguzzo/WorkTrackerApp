@@ -10,6 +10,9 @@ public class Shift implements Serializable{
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+    private String startTime;
+    private String endTime;
+
     private String date;
     private double hoursWorked;
     private double hourlyWage;
@@ -38,8 +41,36 @@ public class Shift implements Serializable{
         this.date = date;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+
     public double getHoursWorked() {
-        return hoursWorked;
+        // Supponiamo che gli orari siano nel formato "HH:mm"
+        String[] start = startTime.split(":");
+        String[] end = endTime.split(":");
+        int startHour = Integer.parseInt(start[0]);
+        int startMinute = Integer.parseInt(start[1]);
+        int endHour = Integer.parseInt(end[0]);
+        int endMinute = Integer.parseInt(end[1]);
+
+        double startDecimal = startHour + startMinute / 60.0;
+        double endDecimal = endHour + endMinute / 60.0;
+
+        return endDecimal - startDecimal;
     }
 
     public void setHoursWorked(double hoursWorked) {
@@ -54,8 +85,8 @@ public class Shift implements Serializable{
         this.hourlyWage = hourlyWage;
     }
 
-    // Calcolo totale dello stipendio
+    // Metodo di calcolo del totale di un singolo turno
     public double getTotalPay() {
-        return hoursWorked * hourlyWage;
+        return getHoursWorked() * hourlyWage;
     }
 }

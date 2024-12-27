@@ -6,17 +6,18 @@ import androidx.room.Query;
 import androidx.room.Delete;
 import androidx.room.Update;
 
-import java.util.List;
-
 import com.andy.worktrackerapp.data.model.Shift;
+
+import java.util.List;
 
 @Dao
 public interface ShiftDao {
+
     @Insert
     void insertShift(Shift shift);
 
     @Update
-    void updateShift(Shift shift);
+    void updateShift(Shift shift); // Presente per aggiornare i turni
 
     @Delete
     void deleteShift(Shift shift);
@@ -24,15 +25,17 @@ public interface ShiftDao {
     @Query("SELECT * FROM shifts ORDER BY date ASC")
     List<Shift> getAllShifts();
 
-    @Query("SELECT * FROM shifts WHERE strftime('%Y', date) = :year AND strftime('%m', date) = :month ORDER BY date ASC")
+    // Query per filtrare i turni di un determinato mese e anno
+    @Query("SELECT * FROM shifts WHERE strftime('%Y', substr(date, 7, 4)) = :year AND strftime('%m', substr(date, 4, 2)) = :month ORDER BY date ASC")
     List<Shift> getShiftsByMonthAndYear(String year, String month);
 
-    @Query("SELECT * FROM shifts WHERE strftime('%Y', date) = :year ORDER BY date ASC")
+    // Query per filtrare i turni di un determinato anno
+    @Query("SELECT * FROM shifts WHERE strftime('%Y', substr(date, 7, 4)) = :year ORDER BY date ASC")
     List<Shift> getShiftsByYear(String year);
 
-    @Query("SELECT SUM(hoursWorked) FROM shifts")
+    @Query("SELECT SUM((CAST(substr(endTime, 1, 2) AS REAL) + CAST(substr(endTime, 4, 2) AS REAL)/60) - (CAST(substr(startTime, 1, 2) AS REAL) + CAST(substr(startTime, 4, 2) AS REAL)/60)) FROM shifts")
     double getTotalHours();
 
-    @Query("SELECT SUM(hoursWorked * hourlyWage) FROM shifts")
+    @Query("SELECT SUM((CAST(substr(endTime, 1, 2) AS REAL) + CAST(substr(endTime, 4, 2) AS REAL)/60) - (CAST(substr(startTime, 1, 2) AS REAL) + CAST(substr(startTime, 4, 2) AS REAL)/60)) * hourlyWage FROM shifts")
     double getTotalPay();
 }

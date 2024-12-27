@@ -64,15 +64,15 @@ public interface ShiftDao {
     @Delete
     void deleteShift(Shift shift);
 
-    @Query("SELECT * FROM shifts ORDER BY date ASC")
+    @Query("SELECT * FROM shifts ORDER BY substr(date, 7, 4) DESC, substr(date, 4, 2) DESC, substr(date, 1, 2) DESC")
     List<Shift> getAllShifts();
 
     // Query per filtrare i turni di un determinato mese e anno
-    @Query("SELECT * FROM shifts WHERE substr(date, 4, 2) = :month AND substr(date, 7, 4) = :year ORDER BY date ASC")
+    @Query("SELECT * FROM shifts WHERE substr(date, 7, 4) = :year AND substr(date, 4, 2) = :month ORDER BY substr(date, 7, 4) DESC, substr(date, 4, 2) DESC, substr(date, 1, 2) DESC")
     List<Shift> getShiftsByMonthAndYear(String year, String month);
 
     // Query per filtrare i turni di un determinato anno
-    @Query("SELECT * FROM shifts WHERE substr(date, 7, 4) = :year ORDER BY date ASC")
+    @Query("SELECT * FROM shifts WHERE substr(date, 7, 4) = :year ORDER BY substr(date, 7, 4) DESC, substr(date, 4, 2) DESC, substr(date, 1, 2) DESC")
     List<Shift> getShiftsByYear(String year);
 
     // Query per calcolare le ore totali lavorate

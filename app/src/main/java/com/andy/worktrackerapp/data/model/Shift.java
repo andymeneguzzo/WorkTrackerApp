@@ -1,105 +1,14 @@
-//package com.andy.worktrackerapp.data.model;
-//
-//import androidx.room.Entity;
-//import androidx.room.PrimaryKey;
-//import java.io.Serializable;
-//
-//@Entity(tableName = "shifts")
-//public class Shift implements Serializable{
-//
-//    @PrimaryKey(autoGenerate = true)
-//    private int id;
-//
-//    private String startTime;
-//    private String endTime;
-//
-//    private String date;
-//    private double hoursWorked;
-//    private double hourlyWage;
-//
-//    // Costruttore
-//    public Shift(String date, String startTime, String endTime, double hourlyWage) {
-//        this.date = date;
-//        this.startTime = startTime;
-//        this.endTime = endTime;
-//        this.hourlyWage = hourlyWage;
-//    }
-//
-//    // Getters e Setters
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//
-//    public String getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(String date) {
-//        this.date = date;
-//    }
-//
-//    public String getStartTime() {
-//        return startTime;
-//    }
-//
-//    public void setStartTime(String startTime) {
-//        this.startTime = startTime;
-//    }
-//
-//    public String getEndTime() {
-//        return endTime;
-//    }
-//
-//    public void setEndTime(String endTime) {
-//        this.endTime = endTime;
-//    }
-//
-//
-//    public double getHoursWorked() {
-//        // Supponiamo che gli orari siano nel formato "HH:mm"
-//        String[] start = startTime.split(":");
-//        String[] end = endTime.split(":");
-//        int startHour = Integer.parseInt(start[0]);
-//        int startMinute = Integer.parseInt(start[1]);
-//        int endHour = Integer.parseInt(end[0]);
-//        int endMinute = Integer.parseInt(end[1]);
-//
-//        double startDecimal = startHour + startMinute / 60.0;
-//        double endDecimal = endHour + endMinute / 60.0;
-//
-//        return endDecimal - startDecimal;
-//    }
-//
-//    public void setHoursWorked(double hoursWorked) {
-//        this.hoursWorked = hoursWorked;
-//    }
-//
-//    public double getHourlyWage() {
-//        return hourlyWage;
-//    }
-//
-//    public void setHourlyWage(double hourlyWage) {
-//        this.hourlyWage = hourlyWage;
-//    }
-//
-//    // Metodo di calcolo del totale di un singolo turno
-//    public double getTotalPay() {
-//        return getHoursWorked() * hourlyWage;
-//    }
-//}
-
 package com.andy.worktrackerapp.data.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(tableName = "shifts")
-public class Shift implements Serializable {
+public class Shift implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -115,6 +24,40 @@ public class Shift implements Serializable {
         this.startTime = startTime;
         this.endTime = endTime;
         this.hourlyWage = hourlyWage;
+    }
+
+    protected Shift(Parcel in) {
+        id = in.readInt();
+        date = in.readString();
+        startTime = in.readString();
+        endTime = in.readString();
+        hourlyWage = in.readDouble();
+    }
+
+    public static final Creator<Shift> CREATOR = new Creator<Shift>() {
+        @Override
+        public Shift createFromParcel(Parcel in) {
+            return new Shift(in);
+        }
+
+        @Override
+        public Shift[] newArray(int size) {
+            return new Shift[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(date);
+        parcel.writeString(startTime);
+        parcel.writeString(endTime);
+        parcel.writeDouble(hourlyWage);
     }
 
     // Getter & Setter
@@ -159,22 +102,30 @@ public class Shift implements Serializable {
     }
 
     // Metodo di calcolo delle ore lavorate
+    /**
+     * Calcola le ore lavorate, considerando anche i turni che attraversano la mezzanotte.
+     *
+     * @return Ore totali lavorate.
+     */
     public double getHoursWorked() {
-        // Supponiamo che gli orari siano nel formato "HH:mm"
-        String[] start = startTime.split(":");
-        String[] end = endTime.split(":");
-        int startHour = Integer.parseInt(start[0]);
-        int startMinute = Integer.parseInt(start[1]);
-        int endHour = Integer.parseInt(end[0]);
-        int endMinute = Integer.parseInt(end[1]);
+        String[] startParts = startTime.split(":");
+        String[] endParts = endTime.split(":");
+        double start = Integer.parseInt(startParts[0]) + Integer.parseInt(startParts[1]) / 60.0;
+        double end = Integer.parseInt(endParts[0]) + Integer.parseInt(endParts[1]) / 60.0;
 
-        double startDecimal = startHour + startMinute / 60.0;
-        double endDecimal = endHour + endMinute / 60.0;
+        // Se l'orario di fine è minore dell'orario di inizio, significa che il turno attraversa la mezzanotte
+        if (end < start) {
+            end += 24;
+        }
 
-        return endDecimal - startDecimal;
+        return end - start;
     }
 
-    // Metodo di calcolo del totale di un singolo turno
+    /**
+     * Calcola la paga totale per il turno.
+     *
+     * @return Paga totale.
+     */
     public double getTotalPay() {
         return getHoursWorked() * hourlyWage;
     }

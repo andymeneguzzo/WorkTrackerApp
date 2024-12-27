@@ -1,9 +1,11 @@
 package com.andy.worktrackerapp.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -30,7 +32,7 @@ public class EditShiftActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_shift);
+        setContentView(R.layout.activity_edit_shift); // Assicurati che il layout sia corretto
 
         // Inizializza i componenti UI
         tilDate = findViewById(R.id.tilDate);
@@ -43,12 +45,13 @@ public class EditShiftActivity extends AppCompatActivity {
         etEndTime = findViewById(R.id.etEndTime);
         etWage = findViewById(R.id.etWage);
         btnUpdate = findViewById(R.id.btnUpdate);
+        btnDelete = findViewById(R.id.btnDelete); // Assicurati che l'ID sia corretto
 
         shiftRepository = new ShiftRepository(this);
 
         // Recupera l'oggetto Shift passato tramite Intent
         if (getIntent() != null && getIntent().hasExtra("shift")) {
-            shiftToEdit = (Shift) getIntent().getSerializableExtra("shift");
+            shiftToEdit = getIntent().getParcelableExtra("shift");
             if (shiftToEdit != null) {
                 etDate.setText(shiftToEdit.getDate());
                 etStartTime.setText(shiftToEdit.getStartTime());
@@ -86,6 +89,14 @@ public class EditShiftActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateShift();
+            }
+        });
+
+        // Listener per il pulsante elimina
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDeleteShift();
             }
         });
     }
@@ -181,5 +192,25 @@ public class EditShiftActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    private void confirmDeleteShift() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Elimina Turno")
+                .setMessage("Sei sicuro di voler eliminare questo turno?")
+                .setPositiveButton("Elimina", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteShift();
+                    }
+                })
+                .setNegativeButton("Annulla", null)
+                .show();
+    }
+
+    private void deleteShift() {
+        shiftRepository.deleteShift(shiftToEdit);
+        Toast.makeText(EditShiftActivity.this, "Turno eliminato con successo!", Toast.LENGTH_SHORT).show();
+        finish(); // Chiudi l'attività e torna alla lista dei turni
     }
 }

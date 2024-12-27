@@ -213,7 +213,7 @@ public class StatsActivity extends AppCompatActivity {
         btnTotalStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shiftRepository.getTotalStats(new ShiftRepository.StatsCallback() {
+                shiftRepository.getGlobalStats(new ShiftRepository.StatsCallback() {
                     @Override
                     public void onStatsLoaded(double totalHours, double totalPay) {
                         String result = String.format(Locale.getDefault(),

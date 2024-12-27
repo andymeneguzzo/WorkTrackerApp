@@ -129,12 +129,19 @@ public class ShiftRepository {
     }
 
     // Metodo asincrono per ottenere le statistiche totali
-    public void getTotalStats(StatsCallback callback) {
+    public void getGlobalStats(StatsCallback callback) {
         executorService.execute(() -> {
-            double totalHours = shiftDao.getTotalHours();
-            double totalPay = shiftDao.getTotalPay();
+            List<Shift> shifts = shiftDao.getAllShifts();
+            double totalHours = 0;
+            double totalPay = 0;
+            for (Shift shift : shifts) {
+                totalHours += shift.getHoursWorked();
+                totalPay += shift.getTotalPay();
+            }
             // Passa i dati al callback sul thread principale
-            new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> callback.onStatsLoaded(totalHours, totalPay));
+            double finalTotalHours = totalHours;
+            double finalTotalPay = totalPay;
+            new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> callback.onStatsLoaded(finalTotalHours, finalTotalPay));
         });
     }
 

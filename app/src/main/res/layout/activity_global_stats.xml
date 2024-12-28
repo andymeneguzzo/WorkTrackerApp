@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="?attr/android:colorBackground">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Pulsante per Mostrare le Statistiche Globali -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShowGlobalStats"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Mostra Statistiche Globali"
+        app:cornerRadius="8dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_marginBottom="16dp"/>
 
-        <!-- Pulsante per Mostrare le Statistiche Globali -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShowGlobalStats"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mostra Statistiche Globali"
-            app:cornerRadius="8dp"
-            android:backgroundTint="?attr/colorPrimary"
-            android:textColor="?attr/colorOnPrimary"
-            android:layout_marginBottom="16dp"/>
+    <!-- Risultati delle Statistiche -->
+    <TextView
+        android:id="@+id/tvGlobalResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="?attr/colorOnBackground"
+        android:layout_marginTop="16dp"/>
 
-        <!-- Risultati delle Statistiche -->
-        <TextView
-            android:id="@+id/tvGlobalResults"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="?attr/colorOnBackground"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>
+    <!-- RecyclerView per la Lista dei Turni -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewGlobalShifts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

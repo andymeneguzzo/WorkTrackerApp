@@ -10,84 +10,40 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
-        <!-- Selezione Mese -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilMonth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mese (1-12)"
-            app:boxStrokeColor="?attr/colorPrimary"
-            app:boxBackgroundMode="outline"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textColor="?attr/colorOnBackground"
-                android:background="?attr/colorSurface"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Selezione Anno -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Anno (es. 2024)"
-            app:boxStrokeColor="?attr/colorPrimary"
-            app:boxBackgroundMode="outline"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textColor="?attr/colorOnBackground"
-                android:background="?attr/colorSurface"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Pulsanti per le Statistiche -->
+        <!-- Pulsante per Statistiche Mensili -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMonthlyStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mostra Statistiche Mensili"
+            android:text="Statistiche Mensili"
             app:cornerRadius="8dp"
             android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"
             android:layout_marginBottom="16dp"/>
 
+        <!-- Pulsante per Statistiche Annuali -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnYearlyStats"
+            android:id="@+id/btnAnnualStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mostra Statistiche Annuali"
+            android:text="Statistiche Annuali"
             app:cornerRadius="8dp"
             android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"
             android:layout_marginBottom="16dp"/>
 
+        <!-- Pulsante per Statistiche Globali -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTotalStats"
+            android:id="@+id/btnGlobalStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Totale Globale"
+            android:text="Statistiche Globali"
             app:cornerRadius="8dp"
             android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"
             android:layout_marginBottom="16dp"/>
-
-        <!-- Risultati delle Statistiche -->
-        <TextView
-            android:id="@+id/tvResults"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="?attr/colorOnBackground"
-            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

@@ -30,16 +30,28 @@ android {
 
 dependencies {
 
+    // Implementazioni principali
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
-    testImplementation libs.junit
+    testImplementation libs.core
+
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    androidTestImplementation 'org.mockito:mockito-android:4.11.0' // Per Mockito nei test strumentati
+    androidTestImplementation 'androidx.test:runner:1.5.2' // Test runner
+    androidTestImplementation 'androidx.test:rules:1.5.0' // Test rules
+    androidTestImplementation 'androidx.arch.core:core-testing:2.1.0' // Per LiveData testing
 
+    // Room Database
     implementation libs.room.runtime
     annotationProcessor libs.room.compiler
 
+    // Unit Testing
     testImplementation libs.room.testing
+    testImplementation libs.junit
+    testImplementation 'org.mockito:mockito-core:4.11.0' // Per Mockito
+    testImplementation 'androidx.arch.core:core-testing:2.1.0' // Per InstantTaskExecutorRule
+    testImplementation 'org.robolectric:robolectric:4.10'
 }

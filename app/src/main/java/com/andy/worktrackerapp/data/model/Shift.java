@@ -34,6 +34,9 @@ public class Shift implements Parcelable {
         hourlyWage = in.readDouble();
     }
 
+    // Only for testing purpose
+    public Shift() {}
+
     public static final Creator<Shift> CREATOR = new Creator<Shift>() {
         @Override
         public Shift createFromParcel(Parcel in) {
